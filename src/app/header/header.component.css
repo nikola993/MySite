@@ -1,0 +1,95 @@
+#grid {
+  display: grid;
+  grid-template-columns: 15% 40% 15% 15% 15%;
+  grid-template-areas: 'logo ... home mini-games contact';
+}
+#dropdown {
+  display: none;
+}
+#logo {
+  grid-area: logo;
+}
+#home {
+  grid-area: home;
+}
+#mini-games {
+  grid-area: mini-games;
+}
+#contact {
+  grid-area: contact;
+}
+#burger {
+  grid-area: burger;
+  display: none;
+}
+.nav-txt {
+  text-align: center;
+}
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 3px;
+  background-color: #333;
+  margin: 8px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+@media only screen and (max-width: 600px) {
+  #grid {
+    grid-template-columns: 15% 40% 15% 15% 15%;
+    grid-template-areas: 'logo ... ... ... burger';
+  }
+  #dropdown {
+    position: absolute;
+    padding-top: 10px;
+    width: 30%;
+    text-align: center;
+    right: 0;
+    grid-template-areas: 'home'
+                         'mini-games'
+                         'contact';
+  }
+  .change#dropdown {
+    display: grid;
+  }
+  #burger {
+    display: block;
+    margin: 0 auto;
+  }
+  .nav-txt{
+    display: none;
+  }
+  #home, #mini-games, #contact {
+    padding: 10px 0 10px 0;
+    border-top: 2px solid black;
+  }
+  #contact{
+    border-bottom: 2px solid black;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  #grid {
+    grid-template-columns: 10% 60% 10% 10% 10%;
+  }
+}
